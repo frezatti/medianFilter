@@ -18,7 +18,7 @@ def add_salt_and_pepper_noise(image, salt_prob, pepper_prob):
 
     return noisy_image
 
-# Função para remover o ruído usando um filtro de média
+
 def remove_noise(image, kernel_size):
 
     denoised_image = np.copy(image)
@@ -39,20 +39,20 @@ def remove_noise(image, kernel_size):
     # return cv2.medianBlur(image, kernel_size)
 
 # Carregar uma imagem
-image = cv2.imread('boats.pgm', cv2.IMREAD_GRAYSCALE)
+image = cv2.imread('cameraman.pgm', cv2.IMREAD_GRAYSCALE)
 
 # Parâmetros para adicionar ruído de sal e pimenta
-salt_prob = 0.03  # Probabilidade de ruído de sal
-pepper_prob = 0.03 # Probabilidade de ruído de pimenta
+salt_prob = 0.2  # Probabilidade de ruído de sal
+pepper_prob = 0.2 # Probabilidade de ruído de pimenta
 
 # Adicionar ruído à imagem
 noisy_image = add_salt_and_pepper_noise(image, salt_prob, pepper_prob)
 
 # Parâmetro do tamanho do kernel para a filtragem de média
-kernel_size = 3
-
+kernel_size = 31 
 # Remover o ruído
 denoised_image = remove_noise(noisy_image, kernel_size)
+denoised_image = remove_noise( denoised_image,kernel_size)
 
 # Exibir as imagens
 #cv2.imshow('Imagem Original', image)
